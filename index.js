@@ -24,7 +24,9 @@ module.exports.https = function (opts, cb) {
 
 module.exports.static = function (opts) {
   var basedir = opts.path || process.cwd()
-  var staticHandler = ecstatic(basedir)
+  var staticHandler = ecstatic(basedir,{
+    showDir: false
+  })
   var router = Router()
 
   var indexHtmlHandler = function (req, res, params) {
